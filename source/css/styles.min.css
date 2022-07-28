@@ -327,7 +327,8 @@ img, svg {
     text-align: center;
     background-color: #ffffff;
     box-shadow: none;
-    transition-duration: 0.3s;
+    visibility: hidden;
+    transition-duration: 0.35s;
   }
   .main-navigation--header .menu__body > *:last-child {
     margin-bottom: 0 !important;
@@ -345,6 +346,7 @@ img, svg {
   }
   .main-navigation--header .menu--active .menu__body {
     transform: translateY(0);
+    visibility: visible;
     box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.1);
   }
 }

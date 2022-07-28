@@ -10,6 +10,7 @@ export function toggleMenuBurger(viewAndCloseMode = true) {
    const menuBlock = document.querySelector('.menu');
 
    menuBlock.classList.toggle("menu--active");
+   menuBlock.removeAttribute("hidden");
 }
 
 
