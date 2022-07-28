@@ -1,4 +1,4 @@
-import { toggleOpenModal, toggleOverlay } from "./modal-window.min.js"
+import { toggleOpenModal, toggleOverlay } from "../js/modal-window.js"
 
 
 
@@ -9,12 +9,16 @@ const inputs = formBlock.querySelectorAll('.modal-text-fields__field input')
 formBlock.addEventListener("submit", (evt) => {
    evt.preventDefault();
 
-   alert("Данные успешно отправлены!");
-
    toggleOpenModal();
    toggleOverlay();
 
    inputs.forEach(input => {
       input.value = "";
    })
+
+   function infoMessage() {
+      alert("Данные успешно отправлены!");
+   }
+
+   setTimeout(infoMessage, 300);
 })

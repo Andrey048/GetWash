@@ -1,4 +1,4 @@
-import { toggleOverlay } from "./modal-window.min.js";
+import { toggleOverlay } from "../js/modal-window.js";
 
 
 

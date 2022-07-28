@@ -1,9 +1,9 @@
-import "../js/slider-swiper.min.js";
+import "../js/slider-swiper.js";
 
-import "../js/menu-burger.min.js";
-import "../js/modal-window.min.js";
-import "../js/scroll.min.js";
-import "../js/form.min.js";
+import "../js/menu-burger.js";
+import "../js/modal-window.js";
+import "../js/scroll.js";
+import "../js/form.js";
 
 
 

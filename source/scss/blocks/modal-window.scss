@@ -29,6 +29,7 @@
          width: auto;
       }
    }
+
    &__close {
       position: absolute;
       top: 33px;
@@ -45,6 +46,7 @@
          right: 18px;
       }
    }
+
    &__title {
       margin-bottom: 72px;
 
@@ -59,9 +61,11 @@
          font-size: 21px;
       }
    }
+
    form {
       text-align: center;
    }
+
    &__btn {
       margin-bottom: 46px;
 
@@ -69,6 +73,7 @@
          margin-bottom: 30px;
       }
    }
+
    &__politics {
       font-weight: 300;
       font-size: 13px;
@@ -85,6 +90,7 @@
       }
    }
 }
+
 .modal-text-fields {
    margin-bottom: 30px;
 
@@ -129,16 +135,20 @@
             background-size: 20px 20px;
          }
       }
+
       &:last-child {
          margin-bottom: 0;
       }
    }
+
    &__field:nth-child(1)::before {
       background-image: url(../images/modal-window/edit-icon.svg);
    }
+
    &__field:nth-child(2)::before {
       background-image: url(../images/modal-window/message-icon.svg);
    }
+
    &__field:nth-child(3)::before {
       background-image: url(../images/modal-window/call-icon.svg);
    }
@@ -185,17 +195,19 @@
          color: #C0C0C0;
       }
    }
+
    &__invalid {
       display: none;
    }
 }
+
 .modal-check-fields {
    margin-bottom: 44px;
 
    text-align: left;
 
    @media (max-width: 480px) {
-      margin-bottom: 35px;
+      margin-bottom: 20px;
    }
 
    &__label {
@@ -211,7 +223,7 @@
       color: $font-gray-color;
 
       @media (max-width: 480px) {
-         margin-bottom: 10px;
+         margin-bottom: 20px;
          padding-left: 20px + 12px;
 
          font-size: 13px;
@@ -220,6 +232,7 @@
       &::last-child {
          margin-bottom: 0;
       }
+
       &::before {
          content: "";
 
@@ -234,7 +247,8 @@
          border-radius: 6px;
       }
    }
-   &__control:checked + &__label {
+
+   &__control:checked+&__label {
       &::after {
          content: "";
 

@@ -101,7 +101,7 @@
    &__text {
       @include adaptive-value($property:margin-bottom, $startSize:62, $minSize:24);
 
-      max-height: 102px;
+      max-height: 160px;
 
       overflow: auto;
    }

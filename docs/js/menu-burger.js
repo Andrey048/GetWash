@@ -1,0 +1,1 @@
+import{toggleOverlay}from"../js/modal-window.js";const burgerButton=document.querySelector(".burger-icon");export function toggleMenuBurger(e=!0){document.querySelector(".menu").classList.toggle("menu--active")}burgerButton.addEventListener("click",e=>{e.preventDefault(),toggleMenuBurger(),toggleOverlay()});

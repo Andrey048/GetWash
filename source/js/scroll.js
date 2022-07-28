@@ -1,5 +1,5 @@
-import { toggleMenuBurger } from "./menu-burger.min.js";
-import { toggleOverlay } from "./modal-window.min.js";
+import { toggleMenuBurger } from "../js/menu-burger.js";
+import { toggleOverlay } from "../js/modal-window.js";
 
 
 

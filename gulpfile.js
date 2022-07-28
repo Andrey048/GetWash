@@ -28,4 +28,6 @@ const watcher = () => {
 export const build = gulp.series(clean, copy, html, styles, js, images, convertFonts);
 const dev = gulp.series(build, server, watcher);
 
+export {js};
+
 gulp.task('default', dev);

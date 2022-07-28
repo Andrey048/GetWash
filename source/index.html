@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
-   @@include('html/head.html', {
-      'title':'GetWash',
-      'styles-url':'css/styles.min.css',
-   })
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>GetWash</title>
+      <link rel="stylesheet" href="css/styles.min.css">
+   </head>
    <body>
-      @@include('html/header.html')
+      <header class="main-navigation main-navigation--header">
+         <div class="_container">
+            <div class="main-navigation__inner">
+               <a class="main-navigation__logo " href="#">
+                  <img src="images/header/logo.svg" alt="GetWash">
+               </a>
+               <nav class="menu">
+                  <div class="menu__body">
+                     <ul class="menu__list">
+                        <li class="menu__list-item">
+                           <a href="#" data-togo=".start" data-place="header">Как использовать</a>
+                        </li>
+                        <li class="menu__list-item">
+                           <a href="#" data-togo=".partner" data-place="header">Партнерам</a>
+                        </li>
+                        <li class="menu__list-item">
+                           <a href="#" data-togo=".download" data-place="header">Скачать</a>
+                        </li>
+                        <li class="menu__list-item">
+                           <a href="#" data-togo=".reviews" data-place="header">Отзывы</a>
+                        </li>
+                     </ul>
+                     <a class="menu__link menu__link" href="#">Получить доступ</a>
+                  </div>
+               </nav>
+               <button class="burger-icon" type="button" aria-label="open/close menu"></button>
+            </div>
+         </div>
+      </header>
 
       <main class="main">
          <section class="top-block">
@@ -128,7 +159,34 @@
          </section>
       </main>
 
-      @@include('html/footer.html')
+      <footer class="main-navigation main-navigation--footer">
+         <div class="_container">
+            <div class="main-navigation__inner ">
+               <a class="main-navigation__logo " href="#">
+                  <img src="images/footer/logo.svg" alt="GetWash">
+               </a>
+               <nav class="menu">
+                  <div class="menu__body">
+                     <ul class="menu__list">
+                        <li class="menu__list-item">
+                           <a href="#" data-togo=".start" data-place="footer">Как использовать</a>
+                        </li>
+                        <li class="menu__list-item">
+                           <a href="#" data-togo=".partner" data-place="footer">Партнерам</a>
+                        </li>
+                        <li class="menu__list-item">
+                           <a href="#" data-togo=".download" data-place="footer">Скачать</a>
+                        </li>
+                        <li class="menu__list-item">
+                           <a href="#" data-togo=".reviews" data-place="footer">Отзывы</a>
+                        </li>
+                     </ul>
+                     <a class="menu__link menu__link" href="#">Получить доступ</a>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </footer>
 
       <section class="modal-window _hidden">
          <div class="modal-window__body">
@@ -141,7 +199,7 @@
                <fieldset class="modal-text-fields">
 
                   <div class="modal-text-fields__field">
-                     <input class="modal-text-fields__input" type="text" name="name" placeholder="Введите имя" required>
+                     <input class="modal-text-fields__input" type="text" name="name" placeholder="Введите имя" required pattern="[A-Za-zА-Яа-яЁё]{2,}">
                      <span class="modal-text-fields__invalid">Некорретно введено имя</span>
                   </div>
 
@@ -151,7 +209,7 @@
                   </div>
 
                   <div class="modal-text-fields__field">
-                     <input class="modal-text-fields__input" type="tel" name="phone" placeholder="Номер телефона" required pattern="8[0-9]{10}">
+                     <input class="modal-text-fields__input" type="tel" name="phone" placeholder="Номер телефона" required pattern="[0-9]{11}">
                      <span class="modal-text-fields__invalid">Некорретно введен телефон</span>
                   </div>
 
@@ -173,8 +231,9 @@
             <p class="modal-window__politics">Нажимая кнопку вы принимаете <a href="#">политику конфиденциальности</a></p>
          </div>
       </section>
+
       <div class="overlay _hidden"></div>
 
-      <script src="js/scripts.min.js" type="module"></script>
+      <script src="js/scripts.js" type="module"></script>
    </body>
 </html>
