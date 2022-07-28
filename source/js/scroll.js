@@ -27,7 +27,7 @@ menuLinks.forEach(link => {
 
       scrollToBlock(classScrollBlock);
 
-      if (evt.target.dataset.place === "header") {
+      if (evt.target.dataset.place === "header" && window.innerWidth < 981) {
          toggleMenuBurger();
          toggleOverlay();
       }
