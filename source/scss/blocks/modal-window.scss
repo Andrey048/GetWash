@@ -1,0 +1,253 @@
+.modal-window {
+   position: fixed;
+   z-index: 150;
+   height: 100%;
+   width: 100%;
+
+   overflow: auto;
+
+   opacity: 1;
+   transition-duration: .2s;
+   transition-property: opacity;
+
+   &__body {
+      position: absolute;
+      top: 60px;
+      left: calc(50% - 480px / 2);
+
+      width: 480px;
+      padding: 87px 40px 47px;
+
+      background-color: #ffffff;
+
+      @media (max-width: 480px) {
+         top: 0;
+         right: 0;
+         left: 0;
+
+         padding: 59px 9px 39px;
+         width: auto;
+      }
+   }
+   &__close {
+      position: absolute;
+      top: 33px;
+      right: 29px;
+
+      width: 24px;
+      height: 24px;
+
+      background-color: transparent;
+      background-image: url(../images/modal-window/close-icon.svg);
+
+      @media (max-width: 480px) {
+         top: 18px;
+         right: 18px;
+      }
+   }
+   &__title {
+      margin-bottom: 72px;
+
+      font-size: 32px;
+      line-height: 125%;
+      text-align: center;
+      color: $font-blue-color;
+
+      @media (max-width: 480px) {
+         margin-bottom: 35px;
+
+         font-size: 21px;
+      }
+   }
+   form {
+      text-align: center;
+   }
+   &__btn {
+      margin-bottom: 46px;
+
+      @media (max-width: 480px) {
+         margin-bottom: 30px;
+      }
+   }
+   &__politics {
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 125%;
+      color: $font-gray-color;
+
+      a {
+         color: #446DF6;
+         text-decoration: underline;
+      }
+
+      @media (max-width: 480px) {
+         text-align: center;
+      }
+   }
+}
+.modal-text-fields {
+   margin-bottom: 30px;
+
+   @media (max-width: 480px) {
+      margin-bottom: 16px;
+   }
+
+   &__field {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      margin-bottom: 30px;
+      padding-left: 21px + 24px + 20px + 21px;
+      padding-right: 21px;
+      height: 64px;
+
+      border: 1px solid #E9ECF5;
+      border-radius: 10px;
+
+      @media (max-width: 480px) {
+         height: 58px;
+         margin-bottom: 10px;
+         padding-left: 20px + 20px + 19px + 18px;
+      }
+
+      &::before {
+         content: "";
+
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+
+         width: 21px + 24px + 20px;
+
+         background-repeat: no-repeat;
+         background-position: center center;
+         border-right: 1px solid #E9ECF5;
+
+         @media (max-width: 480px) {
+            background-size: 20px 20px;
+         }
+      }
+      &:last-child {
+         margin-bottom: 0;
+      }
+   }
+   &__field:nth-child(1)::before {
+      background-image: url(../images/modal-window/edit-icon.svg);
+   }
+   &__field:nth-child(2)::before {
+      background-image: url(../images/modal-window/message-icon.svg);
+   }
+   &__field:nth-child(3)::before {
+      background-image: url(../images/modal-window/call-icon.svg);
+   }
+
+   &__field--invalid {
+      border: 1px solid tomato;
+
+      .modal-text-fields__invalid {
+         // показываем элемент
+         display: block;
+
+         position: absolute;
+         top: calc(100% + 8px);
+         right: 0;
+         left: 0;
+
+         text-align: center;
+         font-size: 15px;
+         color: tomato;
+
+         @media (max-width: 480px) {
+            top: calc(100% + 5px);
+
+            font-size: 12.5px;
+         }
+      }
+   }
+
+   &__input {
+      width: 100%;
+
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 125%;
+      color: #C0C0C0;
+
+      transform: translateY(2px);
+
+      @media (max-width: 480px) {
+         font-size: 14px;
+      }
+
+      &::placeholder {
+         color: #C0C0C0;
+      }
+   }
+   &__invalid {
+      display: none;
+   }
+}
+.modal-check-fields {
+   margin-bottom: 44px;
+
+   text-align: left;
+
+   @media (max-width: 480px) {
+      margin-bottom: 35px;
+   }
+
+   &__label {
+      position: relative;
+      display: block;
+
+      margin-bottom: 18px;
+      padding-left: 24px + 15px;
+
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 125%;
+      color: $font-gray-color;
+
+      @media (max-width: 480px) {
+         margin-bottom: 10px;
+         padding-left: 20px + 12px;
+
+         font-size: 13px;
+      }
+
+      &::last-child {
+         margin-bottom: 0;
+      }
+      &::before {
+         content: "";
+
+         position: absolute;
+         top: -2.5px;
+         left: 0;
+
+         width: 24px;
+         height: 24px;
+
+         border: 1px solid #E9ECF5;
+         border-radius: 6px;
+      }
+   }
+   &__control:checked + &__label {
+      &::after {
+         content: "";
+
+         position: absolute;
+         top: -2.5px;
+         left: 0;
+
+         height: 24px;
+         width: 24px;
+
+         background-image: url(../images/modal-window/check.svg);
+         background-repeat: no-repeat;
+         background-position: center;
+      }
+   }
+}

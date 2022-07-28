@@ -1,0 +1,95 @@
+// @import "normalize.scss";
+@import "reset.scss";
+@import "fonts.scss";
+
+
+
+// ###### Переменные ######
+
+$max-content-width: 1440px; //Максимальная ширина макета
+$min-content-width: 320px; //Минимальная ширина макета
+$container-width: 1170px;
+$container-padding: 20px;
+
+$max-width-laptop: 981px;
+$max-width-tablet: 769px;
+$max-width-mobile: 426px;
+
+// $ppi-min-resolution: 1.5dppx;
+
+$font-gray-color: #72727E;
+$font-blue-color: #141B41;
+
+// ###### / Переменные ######
+
+
+
+// ###### Технические классы ######
+
+._container {
+   max-width: $container-width + $container-padding * 2;
+   margin: 0 auto;
+   padding: 0 $container-padding;
+}
+._visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   white-space: nowrap;
+   clip-path: inset(100%);
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+}
+._hidden {
+   // display: none !important;
+   visibility: hidden !important;
+   opacity: 0 !important;
+}
+
+// ###### / Технические классы ######
+
+
+
+// ###### Общие стили ######
+
+body {
+   position: relative;
+   z-index: 3;
+
+   display: flex;
+   flex-direction: column;
+
+   min-width: $min-content-width;
+
+   font-family: 'GT Eesti Pro Display';
+
+   .main {
+      flex: 1 1 auto;
+   }
+   &.modal-open {
+      overflow: hidden;
+   }
+   .overlay {
+      position: fixed;
+      z-index: 100;
+      height: 100%;
+      width: 100%;
+
+      background-color: rgba($color: #000000, $alpha: .6);
+      opacity: 1;
+      transition-duration: .2s;
+   }
+}
+img, svg {
+   max-width: 100%;
+   max-height: 100%;
+}
+
+// ###### / Общие стили ######
+
+
+
+@import "ui.scss";

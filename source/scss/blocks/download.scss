@@ -1,0 +1,144 @@
+.download {
+   position: relative;
+
+   padding-top: 68px;
+
+   @media (max-width: calc($container-width)) {
+      padding-top: 0;
+   }
+
+   &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      z-index: 20;
+
+      max-width: calc($container-width / 2);
+      width: 50%;
+
+      background-image: url(../images/download/phones.png);
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      background-size: contain;
+
+      @media (max-width: calc($container-width)) {
+         top: 25px;
+
+         max-width: none;
+      }
+      @media (max-width: $max-width-laptop) {
+         background-image: url(../images/download/phone-no-gradient.png);
+      }
+      @media (max-width: $max-width-tablet) {
+         left: 0;
+         width: 100%;
+
+         background-position: center bottom;
+         background-size: 75% auto;
+      }
+      @media (max-width: $max-width-mobile) {
+         background-image: url(../images/download/phone-gradient.png);
+         background-size: contain;
+      }
+   }
+
+   &__body {
+      @include reset-margin;
+      @include adaptive-value($property: padding-top, $startSize: 52, $minSize: 44);
+      @include adaptive-value($property: padding-bottom, $startSize: 64, $minSize: 50);
+      @include adaptive-value($property: padding-left, $startSize: 70, $minSize: 20);
+
+      position: relative;
+      z-index: 10;
+
+      padding-right: 702px;
+
+      // Стили контейнера
+      max-width: $container-width;
+      margin-left: auto;
+      margin-right: auto;
+      // Стили контейнера
+
+      background-color: #7896F8;
+      opacity: 0.85;
+      border-radius: 20px;
+
+      @media (max-width: calc($container-width)) {
+         padding-right: 60%;
+
+         border-radius: 0;
+      }
+      @media (max-width: $max-width-laptop) {
+         padding-right: 50%;
+      }
+      @media (max-width: $max-width-tablet) {
+         @include adaptive-value($property: padding-right, $startSize: 70, $minSize: 20);
+
+         text-align: center;
+
+         padding-bottom: 88% * 0.75;
+      }
+      @media (max-width: $max-width-mobile) {
+         padding-bottom: 88% * 1;
+      }
+   }
+   &__title {
+      @include adaptive-value($property: font-size, $startSize: 40, $minSize: 21);
+
+      margin-bottom: 17px;
+
+      line-height: 115%;
+      color: #F7F8FD;
+
+      @media (max-width: $max-width-tablet) {
+         margin-bottom: 23px;
+         padding: 0 15%;
+      }
+   }
+   &__text {
+      @include adaptive-value($property: font-size, $startSize: 18, $minSize: 14);
+
+      margin-bottom: 45px;
+
+      font-weight: 300;
+      line-height: 140%;
+      color: #E9ECF5;
+
+      @media (max-width: $max-width-tablet) {
+         max-width: 500px;
+         margin-bottom: 28px;
+         margin-left: auto;
+         margin-right: auto;
+      }
+   }
+   &__links {
+      display: flex;
+      flex-wrap: wrap;
+
+      @media (max-width: $max-width-tablet) {
+         max-width: 500px;
+         margin-left: auto;
+         margin-right: auto;
+      }
+   }
+   &__link {
+      flex-basis: 50%;
+
+      padding-right: 20px;
+
+      @media (max-width: $max-width-tablet) {
+         margin-bottom: 18px;
+         padding-right: 0;
+
+         &:last-child {
+            margin-bottom: 0;
+         }
+      }
+      @media (max-width: $max-width-mobile) {
+         flex-basis: 100%;
+      }
+   }
+}

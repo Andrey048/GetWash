@@ -1,0 +1,134 @@
+.reviews {
+   @include adaptive-value($property:padding-top, $startSize:140, $minSize:50);
+   @include adaptive-value($property:padding-bottom, $startSize:140, $minSize:50);
+
+   &__title {
+      @include adaptive-value($property:font-size, $startSize:40, $minSize:21);
+
+      margin-bottom: 17px;
+
+      line-height: 140%;
+      color: $font-blue-color;
+
+      @media (max-width: $max-width-tablet) {
+         margin-bottom: 30px;
+      }
+      @media (max-width: $max-width-mobile) {
+         text-align: center;
+      }
+   }
+
+
+
+   .swiper-container {
+      position: relative;
+      z-index: 10;
+
+      width: 100%;
+
+      overflow: hidden;
+
+      @media (max-width: $max-width-tablet) {
+         padding-bottom: 50px + 50px;
+      }
+   }
+   .swiper-buttons {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      right: 0;
+
+      display: flex;
+
+      @media (max-width: $max-width-tablet) {
+         top: auto;
+         bottom: 0;
+         left: 0;
+
+         justify-content: center;
+      }
+   }
+   .swiper-button {
+      position: static;
+      top: 0;
+
+      margin-top: 0;
+      height: 50px;
+      width: 50px;
+
+      background-color: transparent;
+
+      &::after {
+         display: none;
+      }
+   }
+   .swiper-button-prev {
+      margin-right: 20px;
+
+      background-image: url(../images/reviews/arrow-active.svg);
+      transform: rotate(180deg);
+      transition-duration: .3s;
+
+      @media (max-width: $max-width-tablet) {
+         margin-right: 40px;
+      }
+
+      &.swiper-button-disabled {
+         background-image: url(../images/reviews/arrow-no-active.svg);
+         opacity: 1;
+      }
+   }
+   .swiper-button-next {
+      background-image: url(../images/reviews/arrow-active.svg);
+
+      &.swiper-button-disabled {
+         background-image: url(../images/reviews/arrow-no-active.svg);
+         opacity: 1;
+      }
+   }
+}
+.slide-swaper-body {
+   max-width: 710px;
+   margin-right: 40px + 50px + 20px + 50px;
+
+   @media (max-width: $max-width-tablet) {
+      margin-right: 0;
+   }
+   @media (max-width: $max-width-mobile) {
+      text-align: center;
+   }
+
+   &__text {
+      @include adaptive-value($property:margin-bottom, $startSize:62, $minSize:24);
+
+      max-height: 102px;
+
+      overflow: auto;
+   }
+}
+.author-slide {
+   display: grid;
+   grid-template: 1fr 1fr / 80px auto;
+   align-items: center;
+   column-gap: 30px;
+
+   @media (max-width: $max-width-mobile) {
+      grid-template: 80px auto auto / auto;
+   }
+
+   &__avatar {
+      grid-row: 1 / 3;
+   }
+   &__author-name {
+      font-size: 24px;
+      line-height: 140%;
+      color: $font-blue-color;
+      font-style: normal;
+   }
+   &__author-job {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 140%;
+      color: $font-gray-color;
+   }
+}

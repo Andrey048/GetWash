@@ -1,0 +1,344 @@
+// ###### Миксины ######
+
+@mixin reset-margin {
+   & > *:last-child {
+      margin-bottom: 0 !important;
+   }
+}
+
+@mixin adaptive-value($property, $startSize, $minSize) {
+   $addSize: $startSize - $minSize;
+
+   // Прописать сюда, ниже, сумму ширины контейнера и его внутренних отступов побокам в виде числа.
+   $maxWidthContainer: 1210;
+
+   #{$property}: #{$startSize + px};
+
+   @media (max-width: #{$maxWidthContainer + px}) {
+      // Прописать сюда, ниже, вместо 320 значение минимальной ширины body из переменной $min-container-width в виде числа.
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+   }
+}
+
+@mixin positioning-center-section {
+   max-width: $max-content-width;
+   margin-left: auto;
+   margin-right: auto;
+}
+// ###### / Миксины ######
+
+
+
+// ###### Переиспользуемые БЭМ блоки ######
+
+.btn {
+   @include adaptive-value($property:font-size, $startSize:18, $minSize:16);
+   @include adaptive-value($property:min-height, $startSize:60, $minSize:50);
+   @include adaptive-value($property:padding-left, $startSize:51, $minSize:26);
+   @include adaptive-value($property:padding-right, $startSize:51, $minSize:26);
+
+   display: inline-flex;
+   align-items: center;
+
+   padding-top: 5px;
+   padding-bottom: 5px;
+
+   font-weight: 500;
+   line-height: 140%;
+   color: #EEEEEE;
+
+   background-color: #446DF6;
+   border-radius: 6px;
+}
+
+.text {
+   @include adaptive-value($property:font-size, $startSize:18, $minSize:14);
+
+   font-weight: 300;
+   line-height: 140%;
+   color: $font-gray-color;
+}
+
+// Шапка и футер
+.main-navigation {
+   &__inner {
+      display: flex;
+      align-items: center;
+
+      @include adaptive-value($property: min-height, $startSize: 100, $minSize: 61);
+
+      padding: 5px 0;
+   }
+   &__logo {
+      margin-right: 60px;
+
+      @media (max-width: calc($container-width + $container-padding * 2)) {
+         margin-right: 60px * 0.75;
+      }
+   }
+}
+.main-navigation .menu {
+   margin-left: auto;
+
+   &__body {
+      display: flex;
+      align-items: center;
+   }
+
+   &__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      margin-right: 145px;
+
+      @media (max-width: calc($container-width + $container-padding * 2)) {
+         margin-right: 145px * 0.5;
+      }
+   }
+   &__list-item{
+      margin-right: 55px;
+
+      &:last-child {
+         margin-right: 0;
+      }
+
+      @media (max-width: calc($container-width + $container-padding * 2)) {
+         margin-right: 55px * 0.75;
+      }
+   }
+   &__list-item a{
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 140%;
+   }
+   &__link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+
+      min-height: 50px;
+      padding: 5px 23px;
+
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 140%;
+
+      border-radius: 6px;
+      border: 1px solid #E9ECF5;
+   }
+}
+
+.main-navigation--header {
+   position: relative;
+   z-index: 125;
+
+   &::before {
+      // Заглушка для анимации появления меню
+      content: "";
+
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+
+      background-color: #ffffff;
+
+      @media (max-width: $max-width-laptop) {
+         border-bottom: 1px solid #E9ECF5;
+      }
+   }
+
+   .main-navigation__logo {
+      // Показывем элемент над заглушкой
+      position: relative;
+      z-index: 30;
+   }
+
+   .burger-icon {
+      @include adaptive-value($property: width, $startSize: 100, $minSize: 61);
+
+      // Скрыли на больших разрешениях
+      display: none;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 30;
+
+      height: 100%;
+
+      background:transparent url(../images/header/burger-icon.svg) center/auto auto no-repeat;
+      border-left: 1px solid #E9ECF5;
+
+      @media (max-width: $max-width-laptop) {
+         // Показали на маленьких разрешениях
+         display: block;
+      }
+   }
+}
+.main-navigation--header .menu {
+   position: relative;
+   z-index: 30;
+
+   @media (max-width: $max-width-laptop) {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+   }
+
+   &__body {
+      @media (max-width: $max-width-laptop) {
+         @include reset-margin;
+         @include adaptive-value($property: padding-top, $startSize: 100, $minSize: 61);
+
+         position: absolute;
+         top: -1px;
+         right: 0;
+         left: 0;
+         flex-direction: column;
+         transform: translateY(-101%);
+
+         padding-bottom: 40px;
+
+         text-align: center;
+
+         background-color: #ffffff;
+         box-shadow: none;
+         transition-duration: .4s;
+      }
+   }
+
+   &--active {
+      @media (max-width: $max-width-laptop) {
+         position: fixed;
+         overflow: auto;
+
+         .menu__body {
+            transform: translateY(0);
+
+            box-shadow: 0 15px 15px 0 rgba($color: #000000, $alpha: .1);
+         }
+      }
+   }
+
+   &__list {
+      @media (max-width: $max-width-laptop) {
+         align-self: stretch;
+
+         display: block;
+         margin-right: 0;
+         margin-bottom: 40px;
+      }
+   }
+
+   &__list-item a{
+      color: $font-gray-color;
+   }
+
+   &__list-item{
+      @media (max-width: $max-width-laptop) {
+         margin-right: 0;
+         padding: 30px $container-padding;
+
+         border-bottom: 1px solid #E9ECF5;
+      }
+   }
+
+   &__link {
+      color: #446DF6;
+
+      background-color: #ffffff;
+
+      @media (max-width: $max-width-laptop) {
+         margin-bottom: 24px;
+
+         color: #ffffff;
+
+         background-color: #446DF6;
+         border: none;
+      }
+   }
+}
+
+.main-navigation--footer {
+   position: relative;
+   z-index: 1;
+   background-color: #141B41;
+
+   .main-navigation__inner {
+      @media (max-width: $max-width-laptop) {
+         display: block;
+         padding: 25px 0;
+      }
+      @media (max-width: $max-width-tablet) {
+         padding: 39px 0 35px;
+      }
+   }
+
+   .main-navigation__logo {
+      @media (max-width: $max-width-laptop) {
+         display: block;
+         margin-bottom: 25px;
+      }
+      @media (max-width: $max-width-tablet) {
+         margin-bottom: 25px;
+         margin-right: 0;
+
+         text-align: center;
+      }
+   }
+}
+.main-navigation--footer .menu {
+   &__body {
+      @media (max-width: $max-width-laptop) {
+         @include reset-margin;
+
+         justify-content: space-between;
+
+         margin-left: 0;
+      }
+      @media (max-width: $max-width-tablet) {
+         display: block;
+
+         text-align: center;
+      }
+   }
+   &__list {
+      @media (max-width: $max-width-laptop) {
+         margin-right: 145px * 0.4;
+      }
+      @media (max-width: $max-width-tablet) {
+         display: block;
+         margin-right: 0;
+         margin-bottom: 25px;
+      }
+   }
+
+   &__list-item{
+      @media (max-width: $max-width-laptop) {
+         margin-right: 55px * 0.7;
+      }
+      @media (max-width: $max-width-tablet) {
+         margin-right: 0;
+         margin-bottom: 15px;
+      }
+   }
+
+   &__list-item a{
+      color: #E9ECF5;
+
+      @media (max-width: $max-width-mobile) {
+         font-size: 14px;
+      }
+   }
+
+   &__link {
+      color: #F7F8FD;
+   }
+}
+// ###### / Переиспользуемые БЭМ блоки ######
