@@ -1,66 +1,67 @@
 .top-block {
-   @include positioning-center-section;
+   max-width: $max-content-width;
+   margin-left: auto;
+   margin-right: auto;
 
-   background-image: url(../images/top-block/illustration.png);
-   background-repeat: no-repeat;
-   background-position: right center;
-   background-size: 50% auto;
+   position: relative;
 
-   @media (max-width: 1250px) {
-      background-position:center bottom;
-      background-size: 70% auto;
-   }
-   @media (max-width: $max-width-tablet) {
-      background-size: 85% auto;
-   }
-   @media (max-width: $max-width-mobile) {
-      background-image: url(../images/top-block/illustration-mobile.png);
-      background-size: 100% auto;
+   &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+
+      background-image: url(../images/top-block/illustration.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+
+      @media (max-width: 1250px) {
+         position: static;
+
+         display: block;
+         height: 100px;
+         padding-bottom: 40%;
+      }
+      @media (max-width: $max-width-tablet) {
+         padding-bottom: 60%;
+      }
+      @media (max-width: $max-width-mobile) {
+         padding-bottom: 260 / 320 * 100%;
+
+         background-image: url(../images/top-block/illustration-mobile.png);
+      }
    }
 
    &__inner{
       @include adaptive-value($property:padding-top, $startSize:124, $minSize:37);
-      @include adaptive-value($property:padding-bottom, $startSize:197, $minSize:59);
+      @include adaptive-value($property:padding-bottom, $startSize:119, $minSize:35);
       @include reset-margin;
 
-      min-height: 673px;
-      padding-bottom: 197px;
       padding-right: 50%;
 
       @media (max-width: 1250px) {
-         min-height: 0;
          padding-right: 0;
-         padding-bottom: 99% * 0.7 + 4%;
 
          text-align: center;
-      }
-      @media (max-width: $max-width-tablet) {
-         padding-bottom: 99% * 0.85 + 7%;
-      }
-      @media (max-width: $max-width-mobile) {
-         padding-bottom: 93% + 10%;
       }
    }
    &__title{
       @include adaptive-value($property:font-size, $startSize:40, $minSize:21);
+      @include adaptive-value($property:margin-bottom, $startSize:23, $minSize:19);
 
       display: inline-block;
-      margin-bottom: 23px;
 
       line-height: 125%;
       color: $font-blue-color;
 
       @media (max-width: 1250px) {
-         position: relative;
-
-         margin-bottom: 23px + 22px + 17px;
-
          max-width: 800px;
          margin-left: auto;
          margin-right: auto;
-      }
-      @media (max-width: $max-width-mobile) {
-         margin-bottom: 8px + 22px + 26px;
       }
 
       &::after {
@@ -72,16 +73,16 @@
          margin-left: 15px;
 
          background-image: url(../images/top-block/arrow-big.svg);
+         background-repeat: no-repeat;
+         background-position: center center;
 
          @media (max-width: 1250px) {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: calc(50% - 12px);
-
+            display: block;
             height: 22px;
             width: 24px;
-            margin-left: 0;
             margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
 
             background-image: url(../images/top-block/arrow-small.svg);
          }
@@ -89,8 +90,7 @@
    }
    &__text {
       @include adaptive-value($property:font-size, $startSize:24, $minSize:16);
-
-      margin-bottom: 52px;
+      @include adaptive-value($property:margin-bottom, $startSize:52, $minSize:25);
 
       font-weight: 300;
       line-height: 140%;
@@ -100,9 +100,6 @@
          max-width: 650px;
          margin-left: auto;
          margin-right: auto;
-      }
-      @media (max-width: $max-width-mobile) {
-         margin-bottom: 25px;
       }
    }
 }
