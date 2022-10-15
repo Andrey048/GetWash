@@ -5,8 +5,8 @@
    "main": "gulpfile.js",
    "type": "module",
    "scripts": {
-      "build": "gulp build",
-      "start": "gulp"
+      "build": "npx gulp build",
+      "start": "npx gulp"
    },
    "author": "",
    "license": "ISC",

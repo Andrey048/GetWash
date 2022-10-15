@@ -3,15 +3,15 @@
       @include reset-margin;
       @include adaptive-value($property: padding-top, $startSize: 46, $minSize: 30);
       @include adaptive-value($property: padding-bottom, $startSize: 112, $minSize: 35);
-
-      text-align: center;
    }
    &__title {
-      @include adaptive-value($property: font-size, $startSize: 32, $minSize: 21);
-
       max-width: 850px;
-      margin: 0 auto 17px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 17px;
 
+      @include adaptive-value($property: font-size, $startSize: 32, $minSize: 21);
+      text-align: center;
       line-height: 125%;
       color: $font-blue-color;
 
@@ -21,14 +21,13 @@
    }
    &__text {
       @include adaptive-value($property: margin-bottom, $startSize: 42, $minSize: 7);
-
       max-width: 850px;
       margin-left: auto;
       margin-right: auto;
 
-      @media (max-width: $max-width-mobile) {
-         padding: 0 5%;
+      text-align: center;
 
+      @media (max-width: $max-width-mobile) {
          span {
             display: inline-block;
             margin-bottom: 20px;
@@ -41,81 +40,52 @@
    }
    &__items {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
 
-      margin-bottom: calc(37px - 2.5%);
-
-      @media (max-width: $max-width-mobile) {
-         margin-bottom: 20px;
-      }
+      margin: 0 -20px 20px;
    }
    &__item {
-      flex: 0 0 calc((100% - 2.5% * 4) / 5);
+      flex-basis: 200px;
 
-      margin-right: 2.5%;
-      margin-bottom: 2.5%;
-      padding: 39px + 60px + 24px 29px 33px;
+      @include adaptive-value($property: padding-top, $startSize: 39, $minSize: 39 * 0.63);
+      @include adaptive-value($property: padding-left, $startSize: 29, $minSize: 29 * 0.63);
+      @include adaptive-value($property: padding-right, $startSize: 29, $minSize: 29 * 0.63);
+      @include adaptive-value($property: padding-bottom, $startSize: 33, $minSize: 33 * 0.63);
+      margin: 0 20px;
+      padding: 39px 29px 33px;
 
-      background-repeat: no-repeat;
-      background-position: center 39px;
       box-shadow: 0px 16px 20px 0px rgba(20, 27, 65, 0.03);
       border-radius: 10px;
 
-      &:last-child {
-         margin-right: 0;
+      &::before {
+         content: '';
+
+         @include adaptive-value($property: margin-bottom, $startSize: 24, $minSize: 24 * 0.63);
+         display: block;
+         height: 60px;
+
+         background-repeat: no-repeat;
+         background-position: center center;
       }
-
-      @media (max-width: calc($container-width + $container-padding * 2)) {
-         flex: 0 0 calc((100% - 2.5% * 2) / 3);
-
-         &:nth-child(3n) {
-            margin-right: 0;
-         }
-      }
-      @media (max-width: $max-width-tablet) {
-         flex: 0 0 calc((100% - 2.5% * 1) / 2);
-
-         padding: 39px * 0.75 + 60px + 24px * 0.75 29px * 0.75 33px * 0.75;
-
-         background-position: center 39px * 0.75;
-
-         &:nth-child(3n) {
-            margin-right: 2.5%;
-         }
-         &:nth-child(2n) {
-            margin-right: 0;
-         }
-      }
-      @media (max-width: $max-width-mobile) {
-         flex: 0 0 100%;
-
-         margin-right: 0 !important;
-         margin-bottom: 10px;
-         padding: 39px * 0.63 + 60px + 24px * 0.63 29px * 0.63 33px * 0.63;
-
-         background-position: center 39px* 0.6;
-      }
-
-      &:nth-child(1) {
+      &:nth-child(1)::before {
          background-image: url(../images/partner/document-icon.svg);
       }
-      &:nth-child(2) {
+      &:nth-child(2)::before {
          background-image: url(../images/partner/calendar-icon.svg);
       }
-      &:nth-child(3) {
+      &:nth-child(3)::before {
          background-image: url(../images/partner/chat-icon.svg);
       }
-      &:nth-child(4) {
+      &:nth-child(4)::before {
          background-image: url(../images/partner/star-icon.svg);
       }
-      &:nth-child(5) {
+      &:nth-child(5)::before {
          background-image: url(../images/partner/wallet-icon.svg);
       }
    }
    &__item-text {
       @include adaptive-value($property: font-size, $startSize: 16, $minSize: 14);
-
       font-weight: 300;
       line-height: 140%;
       text-align: center;
