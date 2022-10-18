@@ -1,60 +1,64 @@
 .start {
-   @include positioning-center-section;
+   position: relative;
 
+   max-width: $max-content-width;
    margin-top: -75px;
+   margin-left: auto;
+   margin-right: auto;
 
-   background-image: url(../images/start/illustration.png);
-   background-repeat: no-repeat;
-   background-position: left center;
-   background-size: 50% auto;
-
-   @media (max-width: 1250px) {
-      margin-top: 0px;
-   }
    @media (max-width: $max-width-laptop) {
-      background-position: center bottom;
+      margin-top: 0;
    }
-   @media (max-width: $max-width-tablet) {
-      background-size: 70% auto;
-   }
-   @media (max-width: $max-width-mobile) {
-      background-image: url(../images/start/illustration-mobile.png);
-      background-size: 100% auto;
-   }
+
+   &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: 50%;
+      bottom: 0;
+      left: 0;
+
+      background-image: url(../images/start/illustration.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;   
+
+      @media (max-width: $max-width-laptop) {
+         position: static;
+         display: block;
+         width: 100%;
+         padding-bottom: 50%;
+      }
+      @media (max-width: $max-width-tablet) {
+         padding-bottom: 60%;
+      }
+      @media (max-width: $max-width-mobile) {
+         padding-bottom: calc(601 / 320 * 100%);
+         
+         background-image: url(../images/start/illustration-mobile.png);
+      }   
+   }  
 
    &__inner {
       @include reset-margin;
       @include adaptive-value($property: padding-top, $startSize: 98, $minSize: 51);
       @include adaptive-value($property: padding-bottom, $startSize: 94, $minSize: 47);
-
-      min-height: 724px;
-      padding-left: 48.6%;
+      padding-left: 50%;
 
       @media (max-width: $max-width-laptop) {
-         min-height: 0;
          padding-left: 0;
-         padding-bottom: 106% * 0.5 + 8%;
-      }
-      @media (max-width: $max-width-tablet) {
-         padding-bottom: 106% * 0.70 + 9%;
-      }
-      @media (max-width: $max-width-mobile) {
-         padding-bottom: 205%;
       }
    }
    &__title {
+      @include adaptive-value($property:margin-bottom, $startSize:52, $minSize:30);
+
       @include adaptive-value($property: font-size, $startSize: 40, $minSize: 21);
-
-      margin-bottom: 52px;
-
       line-height: 110%;
       color: $font-blue-color;
 
       @media (max-width: $max-width-laptop) {
          text-align: center;
-      }
-      @media (max-width: $max-width-mobile) {
-         margin-bottom: 30px;
       }
    }
    &__items {
@@ -77,52 +81,64 @@
    }
 }
 .item-start {
+   display: flex;
+
    @include reset-margin;
 
-   min-height: 60px;
-   padding-left: 60px + 30px;
-
-   background-repeat: no-repeat;
-   background-position: left top;
-
    @media (max-width: $max-width-mobile) {
-      min-height: 0;
-      padding-left: 0;
-      padding-top: 60px + 20px;
-
-      text-align: center;
-
-      background-position: center top;
+      flex-direction: column;
+      align-items: center;
    }
 
-   &:nth-child(1) {
+   &::before {
+      content: '';
+
+      display: block;
+      width: 60px;
+      height: 60px;
+
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+
+      @media (max-width: $max-width-mobile) {
+         margin-bottom: 15px;
+      }
+   }
+
+   &:nth-child(1)::before {
       background-image: url(../images/start/download-icon.svg);
    }
-   &:nth-child(2) {
+   &:nth-child(2)::before {
       background-image: url(../images/start/location-icon.svg);
    }
-   &:nth-child(3) {
+   &:nth-child(3)::before {
       background-image: url(../images/start/filter-icon.svg);
    }
-   &:nth-child(4) {
+   &:nth-child(4)::before {
       background-image: url(../images/start/wallet-icon.svg);
    }
 
+   &__inner {
+      padding-left: 30px;
+
+      @media (max-width: $max-width-mobile) {
+         padding-left: 0;
+      }
+   }
    &__title {
+      @include adaptive-value($property:margin-bottom, $startSize:8, $minSize:10);
+
       @include adaptive-value($property: font-size, $startSize: 24, $minSize: 18);
-
-      margin-bottom: 8px;
-
       line-height: 135%;
       color: $font-blue-color;
 
       @media (max-width: $max-width-mobile) {
-         margin-bottom: 10px;
+         text-align: center;
       }
    }
    &__text {
       @include adaptive-value($property: font-size, $startSize: 18, $minSize: 14);
-
       font-weight: 300;
       line-height: 135%;
       color: $font-gray-color;
@@ -131,6 +147,8 @@
          max-width: 80%;
          margin-left: auto;
          margin-right: auto;
+
+         text-align: center;
       }
    }
 }

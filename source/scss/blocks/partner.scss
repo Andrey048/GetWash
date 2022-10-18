@@ -3,6 +3,8 @@
       @include reset-margin;
       @include adaptive-value($property: padding-top, $startSize: 46, $minSize: 30);
       @include adaptive-value($property: padding-bottom, $startSize: 112, $minSize: 35);
+
+      text-align: center;
    }
    &__title {
       max-width: 850px;
@@ -43,7 +45,7 @@
       flex-wrap: wrap;
       justify-content: center;
 
-      margin: 0 -20px 20px;
+      margin: 0 -20px;
    }
    &__item {
       flex-basis: 200px;
@@ -52,7 +54,7 @@
       @include adaptive-value($property: padding-left, $startSize: 29, $minSize: 29 * 0.63);
       @include adaptive-value($property: padding-right, $startSize: 29, $minSize: 29 * 0.63);
       @include adaptive-value($property: padding-bottom, $startSize: 33, $minSize: 33 * 0.63);
-      margin: 0 20px;
+      margin: 0 20px 20px;
       padding: 39px 29px 33px;
 
       box-shadow: 0px 16px 20px 0px rgba(20, 27, 65, 0.03);
