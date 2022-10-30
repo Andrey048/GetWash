@@ -1,7 +1,8 @@
 .reviews {
-   @include adaptive-value($property:padding-top, $startSize:140, $minSize:50);
-   @include adaptive-value($property:padding-bottom, $startSize:140, $minSize:50);
-
+   &__inner {
+      @include adaptive-value($property:padding-top, $startSize:140, $minSize:50);
+      @include adaptive-value($property:padding-bottom, $startSize:140, $minSize:50);
+   }
    &__title {
       @include adaptive-value($property:font-size, $startSize:40, $minSize:21);
 
@@ -106,7 +107,7 @@
       overflow: auto;
    }
 }
-.author-slide {
+.author-section-slide {
    display: grid;
    grid-template: 1fr 1fr / 80px auto;
    align-items: center;
