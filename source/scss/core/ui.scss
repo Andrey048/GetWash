@@ -262,80 +262,27 @@
    }
 }
 
-.main-navigation--footer {
-   position: relative;
-   z-index: 1;
-   background-color: #141B41;
 
-   .main-navigation__inner {
-      @media (max-width: $max-width-laptop) {
-         display: block;
-         padding: 25px 0;
-      }
-      @media (max-width: $max-width-tablet) {
-         padding: 39px 0 35px;
-      }
-   }
 
-   .main-navigation__logo {
-      @media (max-width: $max-width-laptop) {
-         display: block;
-         margin-bottom: 25px;
-      }
-      @media (max-width: $max-width-tablet) {
-         margin-bottom: 25px;
-         margin-right: 0;
 
-         text-align: center;
-      }
-   }
-}
-.main-navigation--footer .menu {
-   &__body {
-      @media (max-width: $max-width-laptop) {
-         @include reset-margin;
 
-         justify-content: space-between;
+.main-btn {
+   display: inline-flex;
+   align-items: center;
 
-         margin-left: 0;
-      }
-      @media (max-width: $max-width-tablet) {
-         display: block;
+   min-height: 50px;
+   padding: 5px 23px;
 
-         text-align: center;
-      }
-   }
-   &__list {
-      @media (max-width: $max-width-laptop) {
-         margin-right: 145px * 0.4;
-      }
-      @media (max-width: $max-width-tablet) {
-         display: block;
-         margin-right: 0;
-         margin-bottom: 25px;
-      }
-   }
+   font-family: inherit;
+   font-size: 16px;
+   line-height: 140%;
 
-   &__list-item{
-      @media (max-width: $max-width-laptop) {
-         margin-right: 55px * 0.7;
-      }
-      @media (max-width: $max-width-tablet) {
-         margin-right: 0;
-         margin-bottom: 15px;
-      }
-   }
+   border-radius: 6px;
+   border: 1px solid #E9ECF5;
 
-   &__list-item a{
+   &--footer {
       color: #E9ECF5;
-
-      @media (max-width: $max-width-mobile) {
-         font-size: 14px;
-      }
-   }
-
-   &__link {
-      color: #F7F8FD;
    }
 }
+
 // ###### / Переиспользуемые БЭМ блоки ######
