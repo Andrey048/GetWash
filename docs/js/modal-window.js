@@ -1,1 +1,45 @@
-const buttonModal=document.querySelector(".partner__btn"),modalCloseButton=document.querySelector(".modal-window__close");function centerOpenModalBody(){const e=document.querySelector(".modal-window__body"),o=(window.innerHeight-e.offsetHeight)/2;e.style.top=o<0?"0px":`${o}px`}export function toggleOpenModal(){document.querySelector(".modal-window").classList.toggle("_hidden")}export function toggleOverlay(e=!0){const o=document.querySelector(".overlay"),t=document.body;o.classList.toggle("_hidden"),t.style.paddingRight=`${window.innerWidth-t.clientWidth}px`,t.classList.toggle("modal-open")}buttonModal.addEventListener("click",e=>{e.preventDefault(),toggleOpenModal(),centerOpenModalBody()}),modalCloseButton.addEventListener("click",e=>{e.preventDefault(),toggleOpenModal()});
+const buttonModal = document.querySelector('.partner__btn');
+const modalCloseButton = document.querySelector(".modal-window__close");
+
+
+
+function centerOpenModalBody() {
+   const modalWindowBlockBody = document.querySelector('.modal-window__body');
+   const coordinateTop = (window.innerHeight - modalWindowBlockBody.offsetHeight) / 2;
+
+   if (coordinateTop < 0) {
+      modalWindowBlockBody.style.top = "0px";
+   } else {
+      modalWindowBlockBody.style.top = `${coordinateTop}px`;
+   }
+}
+export function toggleOpenModal() {
+   const modalWindowBlock = document.querySelector('.modal-window');
+
+   modalWindowBlock.classList.toggle("_hidden");
+}
+export function toggleOverlay(viewAndCloseMode = true) {
+   const overlayBlock = document.querySelector('.overlay');
+   const body = document.body;
+
+   overlayBlock.classList.toggle("_hidden");
+   body.style.paddingRight = `${window.innerWidth - body.clientWidth}px`;
+   body.classList.toggle("modal-open");
+}
+
+
+
+buttonModal.addEventListener("click", evt => {
+   evt.preventDefault();
+
+   toggleOpenModal();
+   centerOpenModalBody();
+   toggleOverlay();
+})
+
+modalCloseButton.addEventListener("click", evt => {
+   evt.preventDefault();
+
+   toggleOpenModal();
+   toggleOverlay();
+})

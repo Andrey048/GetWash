@@ -1,128 +1,118 @@
 .header {
-   position: relative;
-   z-index: 125;
+   @media (max-width: $burger-screen-width) {
+      &--no-js &__inner {
+         flex-wrap: wrap;
+      }   
+      &--no-js &__menu {
+         order: 1;
+         flex-basis: calc(100% + $container-padding * 2);
 
-   &::before {
-      // Заглушка для анимации появления меню
-      content: "";
-
-      position: absolute;
-      z-index: 20;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-
-      background-color: #ffffff;
-
-      @media (max-width: $max-width-laptop) {
-         border-bottom: 1px solid #E9ECF5;
+         margin-left: -$container-padding;
+         margin-right: -$container-padding;
       }
+   }
+
+   &--js &__menu {
+      @media (max-width: $burger-screen-width) {
+         visibility: hidden;
+
+         position: fixed;
+         z-index: 1000;
+         top: 100px;
+         right: 0;
+         bottom: 0;
+         left: 0;
+
+         overflow: auto;
+      }
+      @media (max-width: $max-width-mobile) {
+         top: 60px;
+      }
+   }
+
+   &--js-active &__menu {
+      // header--js-active
+
+      visibility: visible;
    }
 
    &__inner {
       display: flex;
       align-items: center;
 
-      @include adaptive-value($property: min-height, $startSize: 100, $minSize: 61);
-      padding: 5px 0;
+      min-height: 100px;
+
+      @media (max-width: $max-width-mobile) {
+         min-height: 60px;
+      }
    }
    &__logo {
-      // Показывем элемент над заглушкой
-      position: relative;
-      z-index: 30;
-
       margin-right: 60px;
    }
    &__menu {
-      margin-left: auto;
+
    }
    &__burger-icon {
-      @include adaptive-value($property: width, $startSize: 100, $minSize: 61);
+      margin-left: auto;
 
       // Скрыли на больших разрешениях
       display: none;
 
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 30;
-
-      height: 100%;
-
-      background:transparent url(../images/header/burger-icon.svg) center/auto auto no-repeat;
-      border-left: 1px solid #E9ECF5;
-
-      @media (max-width: $max-width-laptop) {
+      @media (max-width: $burger-screen-width) {
          // Показали на маленьких разрешениях
          display: block;
       }
    }
 }
 .menu-header {
-   position: relative;
-   z-index: 30;
+   @media (max-width: $burger-screen-width) {
+      &--no-js {
+         box-shadow: 0 15px 15px 0 rgba($color: #000000, $alpha: .1);
+      }
 
-   @media (max-width: $max-width-laptop) {
-      position: absolute;
-      z-index: 10;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-   }
+      &--js {
+         background-color: transparent;
+         opacity: 0;
+         transition-duration: .2s;
+      }
+      &--js &__body {
+         transform: translateY(-100%);
+         transition-duration: .2s;
+      }
 
-   &--active {
-      @media (max-width: $max-width-laptop) {
-         position: fixed;
-         overflow: auto;
+      &--js-active {
+         // menu-header--js-active
 
-         .menu-header__body {                    
-            transform: translateY(0);
-
-            visibility: visible;
-            box-shadow: 0 15px 15px 0 rgba($color: #000000, $alpha: .1);
-         }
+         background-color: rgba($color: #000000, $alpha: .6);
+         opacity: 1;
+      }   
+      &--js-active &__body {
+         transform: translateY(0%);
       }
    }
 
    &__body {
-      // display: flex;
+      display: flex;
       align-items: center;
 
-      @media (max-width: $max-width-laptop) {
-         @include reset-margin;
-         @include adaptive-value($property: padding-top, $startSize: 100, $minSize: 61);
-
-         position: absolute;
-         top: -1px;
-         right: 0;
-         left: 0;
-         flex-direction: column;
-         transform: translateY(-101%);
-
+      @media (max-width: $burger-screen-width) {
+         display: block;
          padding-bottom: 40px;
-
-         text-align: center;
+         @include reset-margin;
 
          background-color: #ffffff;
-         box-shadow: none;
-         visibility: hidden;
-         transition-duration: .35s;
       }
    }
    &__items {
       display: flex;
       flex-wrap: wrap;
 
-      margin-right: 50px;
+      &:not(:last-child) {
+         border-bottom: 1px solid #E9ECF5;         
+      }
 
-      @media (max-width: $max-width-laptop) {
-         align-self: stretch;
-
+      @media (max-width: $burger-screen-width) {
          display: block;
-         margin-right: 0;
-         margin-bottom: 40px;
       }
    }
    &__item {
@@ -133,10 +123,12 @@
       }
 
       @media (max-width: $max-width-laptop) {
-         margin-right: 0;
          padding: 30px $container-padding;
+         margin-right: 0;
 
-         border-bottom: 1px solid #E9ECF5;
+         text-align: center;
+
+         border-top: 1px solid #E9ECF5;
       }
    }
    &__item a {
@@ -145,13 +137,32 @@
       line-height: 140%;
       color: $font-gray-color;
    }
-   &__link {
-      flex-shrink: 0;
+   // &__link {
+   //    flex-shrink: 0;
 
-      margin-left: auto;
+   //    margin-left: auto;
 
-      @media (max-width: $burger-screen-width) {
-         margin-bottom: 24px;
-      }
+   //    @media (max-width: $burger-screen-width) {
+   //       margin-bottom: 24px;
+   //       margin-left: 0;
+   //    }
+   // }
+}
+.burger-icon {
+   height: 100px;
+   width: 100px;
+
+   margin-right: -$container-padding;
+
+   background-color: transparent;
+   background-image: url(../images/header/burger-icon.svg);
+   background-position: center center;
+   background-size: 24px 24px;
+   background-repeat: no-repeat;
+   border-left: 1px solid #E9ECF5;
+
+   @media (max-width: $max-width-mobile) {
+      height: 60px;
+      width: 60px;
    }
 }

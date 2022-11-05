@@ -6,34 +6,41 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>GetWash</title>
    <link rel="stylesheet" href="css/styles.min.css">
+
+   <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+   />
+   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+   <script src="js/main.js" type="module"></script>
 </head>
 <body>
-   <header class="main-navigation1 main-navigation1--header header">
+   <header class="header header--no-js" id="header-main-container">
       <div class="_container">
-         <div class="main-navigation1__inner header__inner">
-            <a class="main-navigation1__logo header__logo" href="#">
-               <img src="images/header/logo.svg" alt="GetWash">
+         <div class="header__inner">
+            <a class="header__logo" href="#">
+               <img src="images/header/logo.svg" alt="GetWash" width="120" height="23">
             </a>
-            <nav class="menu1 header__menu menu-header" hidden>
-               <div class="menu1__body menu-header__body">
-                  <ul class="menu1__list menu-header__items">
-                     <li class="menu1__list-item menu-header__item">
+            <nav class="header__menu menu-header menu-header--no-js" id="menu-container">
+               <div class="menu-header__body">
+                  <ul class="menu-header__items">
+                     <li class="menu-header__item">
                         <a href="#" data-togo=".start" data-place="header">Как использовать</a>
                      </li>
-                     <li class="menu1__list-item menu-header__item">
+                     <li class="menu-header__item">
                         <a href="#" data-togo=".partner" data-place="header">Партнерам</a>
                      </li>
-                     <li class="menu1__list-item menu-header__item">
+                     <li class="menu-header__item">
                         <a href="#" data-togo=".download" data-place="header">Скачать</a>
                      </li>
-                     <li class="menu1__list-item menu-header__item">
+                     <li class="menu-header__item">
                         <a href="#" data-togo=".reviews" data-place="header">Отзывы</a>
                      </li>
                   </ul>
-                  <a class="menu__link menu-header__link main-btn main-btn--header" href="#">Получить доступ</a>
+                  <!-- <a class="menu__link menu-header__link main-btn main-btn--header" href="#">Получить доступ</a> -->
                </div>
             </nav>
-            <button class="header__burger-icon burger-icon" type="button" aria-label="open/close menu"></button>
+            <button class="header__burger-icon burger-icon" id="burger-button" type="button" aria-label="open/close menu"></button>
          </div>
       </div>
    </header>
@@ -253,7 +260,5 @@
    </article>
 
    <div class="overlay _hidden"></div>
-
-   <script src="js/scripts.js" type="module"></script>
 </body>
 </html>
