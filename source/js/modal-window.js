@@ -34,12 +34,12 @@ buttonModal.addEventListener("click", evt => {
 
    toggleOpenModal();
    centerOpenModalBody();
-   toggleOverlay();
+   // toggleOverlay();
 })
 
 modalCloseButton.addEventListener("click", evt => {
    evt.preventDefault();
 
    toggleOpenModal();
-   toggleOverlay();
+   // toggleOverlay();
 })

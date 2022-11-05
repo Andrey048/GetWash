@@ -7,9 +7,9 @@ const burgerButton = document.querySelector('.burger-icon');
 
 
 export function toggleMenuBurger(viewAndCloseMode = true) {
-   const menuBlock = document.querySelector('.menu');
+   const menuBlock = document.querySelector('.menu-header');
 
-   menuBlock.classList.toggle("menu--active");
+   menuBlock.classList.toggle("menu-header--active");
    menuBlock.removeAttribute("hidden");
 }
 

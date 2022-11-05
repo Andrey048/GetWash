@@ -101,7 +101,7 @@
          margin-right: 55px * 0.75;
       }
    }
-   &__list-item a{
+   &__list-item a {
       font-weight: 300;
       font-size: 18px;
       line-height: 140%;
@@ -280,6 +280,18 @@
    border-radius: 6px;
    border: 1px solid #E9ECF5;
 
+   &--header {
+      color: #446DF6;
+
+      background-color: #ffffff;
+
+      @media (max-width: $burger-screen-width) {
+         color: #ffffff;
+
+         background-color: #446DF6;
+         border: none;
+      }
+   }
    &--footer {
       color: #E9ECF5;
    }
