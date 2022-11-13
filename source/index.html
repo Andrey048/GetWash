@@ -17,12 +17,12 @@
 <body>
    <header class="header header--no-js" id="header-main-container">
       <div class="_container">
-         <div class="header__inner">
+         <div class="header__inner" id="header-body">
             <a class="header__logo" href="#">
                <img src="images/header/logo.svg" alt="GetWash" width="120" height="23">
             </a>
             <nav class="header__menu menu-header menu-header--no-js" id="menu-container">
-               <div class="menu-header__body">
+               <div class="menu-header__body" id="menu-body">
                   <ul class="menu-header__items">
                      <li class="menu-header__item">
                         <a href="#" data-togo=".start" data-place="header">Как использовать</a>
@@ -37,9 +37,9 @@
                         <a href="#" data-togo=".reviews" data-place="header">Отзывы</a>
                      </li>
                   </ul>
-                  <!-- <a class="menu__link menu-header__link main-btn main-btn--header" href="#">Получить доступ</a> -->
                </div>
             </nav>
+            <a class="header__link menu-header__link main-btn main-btn--header" id="header-link" href="#">Получить доступ</a>
             <button class="header__burger-icon burger-icon" id="burger-button" type="button" aria-label="open/close menu"></button>
          </div>
       </div>

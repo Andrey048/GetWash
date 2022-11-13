@@ -1,5 +1,3 @@
-// import "../js/slider-swiper.js";
-
 import { setClickBurger } from "./menu-burger.js";
 // import "../js/modal-window.js";
 // import "../js/scroll.js";
@@ -7,7 +5,29 @@ import { setClickBurger } from "./menu-burger.js";
 
 
 
-// ###### Скрипт инициализации свайпера ######
+
+setClickBurger();
+
+const BURGER_SCREEN_WIDTH = 981;
+const headerBtn = document.querySelector('#header-link');
+const menuBody = document.querySelector('#menu-body');
+const headerBody = document.querySelector('#header-body');
+
+const burgerMediaQuery = matchMedia(`(max-width: ${BURGER_SCREEN_WIDTH}px)`);
+
+if (burgerMediaQuery.matches) {
+   menuBody.append(headerBtn);
+}
+
+burgerMediaQuery.addEventListener('change', () => {
+   if (innerWidth < BURGER_SCREEN_WIDTH) {
+      menuBody.append(headerBtn);
+   } else {
+      headerBody.append(headerBtn);
+   }
+})
+
+
 
 const swiper = new Swiper('.swiper-container', {
    direction: 'horizontal',
@@ -16,16 +36,3 @@ const swiper = new Swiper('.swiper-container', {
       prevEl: '.swiper-button-prev',
    },
 });
-
-// ###### / Скрипт инициализации свайпера ######
-
-setClickBurger();
-
-
-
-
-
-
-
-
-
