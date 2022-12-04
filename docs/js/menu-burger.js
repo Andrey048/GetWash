@@ -3,7 +3,6 @@ const menuElement = document.querySelector('#menu-container');
 
 const headerActiveClass = 'header--js-active';
 const menuActiveClass = 'menu-header--js-active';
-const body = document.body;
 
 const BURGER_SCREEN_WIDTH = 981;
 
@@ -25,11 +24,11 @@ function toggleActiveHeader() {
    if (isHeaderActive()) {
       headerElement.classList.remove(headerActiveClass);
       menuElement.classList.remove(menuActiveClass);
-      body.classList.remove('modal-open');
+      document.body.classList.remove('lock');
    } else {
       headerElement.classList.add(headerActiveClass);
       menuElement.classList.add(menuActiveClass);
-      body.classList.add('modal-open');
+      document.body.classList.add('lock');
    }
 
    function isHeaderActive() {

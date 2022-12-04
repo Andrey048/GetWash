@@ -1,4 +1,6 @@
 .modal-window {
+   @include overlay;
+
    position: fixed;
    z-index: 150;
    height: 100%;
@@ -6,9 +8,14 @@
 
    overflow: auto;
 
-   opacity: 1;
-   transition-duration: .2s;
-   transition-property: opacity;
+   visibility: hidden;
+   opacity: 0;
+   transition-duration: .15s;
+
+   &--show {
+      visibility: visible;
+      opacity: 1;
+   }
 
    &__body {
       position: absolute;
