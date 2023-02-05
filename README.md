@@ -7,3 +7,4 @@
 - NPM
 - Gulp
 - SASS
+- Swiper
